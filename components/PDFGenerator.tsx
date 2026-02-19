@@ -123,7 +123,7 @@ export default function PDFGenerator() {
               <CheckCircle size={48} className="text-et-green" />
             </div>
             <h2 className="text-3xl font-black text-et-dark mb-3">
-              Your Documents Are Ready! 🎉
+              Your Documents Are Ready!
             </h2>
             <p className="text-gray-600 mb-6">
               Your FX Freedom Documentation Package has been downloaded. Use it
@@ -132,15 +132,15 @@ export default function PDFGenerator() {
             <div className="bg-et-green/5 border border-et-green/20 rounded-xl p-5 mb-6 text-left">
               <h3 className="font-bold text-et-green mb-3">What&apos;s in your PDF:</h3>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li>✅ Personalized bank cover letter (ready to print)</li>
-                <li>✅ FXD/04/2026 key provisions summary</li>
-                <li>✅ Complete documentation checklist</li>
-                <li>✅ Step-by-step implementation timeline</li>
-                <li>✅ Annual earnings projection worksheet</li>
+                <li>Personalized bank cover letter (ready to print)</li>
+                <li>FXD/04/2026 key provisions summary</li>
+                <li>Complete documentation checklist</li>
+                <li>Step-by-step implementation timeline</li>
+                <li>Annual earnings projection worksheet</li>
               </ul>
             </div>
             <div className="text-sm text-gray-500 mb-6">
-              Want more FX Freedom tips? Join the waitlist below ↓
+              Want more FX Freedom tips? Join the waitlist below
             </div>
             <button
               onClick={() => setSuccess(false)}
@@ -367,7 +367,7 @@ export default function PDFGenerator() {
               )}
             </button>
             <p className="text-center text-xs text-gray-400 mt-3">
-              🔒 Your information is used only to personalize your PDF. We never
+              Your information is used only to personalize your PDF. We never
               share your data.
             </p>
           </div>

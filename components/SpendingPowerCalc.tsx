@@ -15,7 +15,7 @@ export default function SpendingPowerCalc() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 bg-et-green/10 text-et-green rounded-xl flex items-center justify-center text-xl">
-          💳
+          $
         </div>
         <div>
           <h3 className="font-bold text-et-dark text-lg">
@@ -86,7 +86,7 @@ export default function SpendingPowerCalc() {
                 service.enabled ? "text-green-500" : "text-gray-300"
               }`}
             >
-              {service.enabled ? "✓" : "✗"}
+              {service.enabled ? "Enabled" : "Unavailable"}
             </span>
           </div>
         ))}
@@ -108,7 +108,7 @@ export default function SpendingPowerCalc() {
       <div className="grid grid-cols-2 gap-3">
         <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-center">
           <div className="text-xs font-semibold text-red-600 mb-2">
-            ❌ Black Market
+            Black Market
           </div>
           <div className="text-xs text-gray-600">
             Birr cash only
@@ -118,7 +118,7 @@ export default function SpendingPowerCalc() {
         </div>
         <div className="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
           <div className="text-xs font-semibold text-et-green mb-2">
-            ✅ FXD/04/2026
+            FXD/04/2026
           </div>
           <div className="text-xs text-gray-600">
             International Visa/MC

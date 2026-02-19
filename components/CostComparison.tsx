@@ -93,8 +93,8 @@ const comparisonData = [
   },
   {
     aspect: "Scaling Potential",
-    blackMarket: "Capped ❌",
-    formal: "Unlimited ✅",
+    blackMarket: "Capped",
+    formal: "Unlimited",
     blackMarketBad: true,
     formalBad: false,
     highlight: false,
@@ -140,7 +140,7 @@ export default function CostComparison() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-et-gold/20 text-yellow-700 rounded-full px-4 py-2 text-sm font-semibold mb-4">
-            ⚡ The Real Numbers
+            The Real Numbers
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-et-dark mb-4">
             Black Market vs{" "}
@@ -163,7 +163,6 @@ export default function CostComparison() {
             </div>
             <div className="py-4 px-4 sm:px-6 text-center border-l border-white/10">
               <div className="flex items-center justify-center gap-2">
-                <span className="text-red-400 text-lg">⚠️</span>
                 <span className="text-white font-bold text-sm sm:text-base">
                   Black Market
                 </span>
@@ -172,7 +171,6 @@ export default function CostComparison() {
             </div>
             <div className="py-4 px-4 sm:px-6 text-center border-l border-white/10 bg-et-green/20">
               <div className="flex items-center justify-center gap-2">
-                <span className="text-green-400 text-lg">✅</span>
                 <span className="text-white font-bold text-sm sm:text-base">
                   FXD/04/2026
                 </span>
@@ -214,7 +212,7 @@ export default function CostComparison() {
 
         {/* Bottom line */}
         <div className="mt-8 bg-et-green text-white rounded-2xl p-8 text-center">
-          <div className="text-4xl mb-4">💡</div>
+          <div className="text-4xl mb-4">►</div>
           <h3 className="text-2xl font-bold mb-3">The Bottom Line</h3>
           <p className="text-white/90 text-lg max-w-2xl mx-auto mb-4">
             For the{" "}
@@ -256,10 +254,10 @@ export default function CostComparison() {
               rel="noopener noreferrer"
               className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-600 transition-colors"
             >
-              ✈️ Share on Telegram
+              Share on Telegram
             </a>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Ethiopian freelancers now have 100% FX retention under FXD/04/2026! No more informal channels. Get international cards legally. 🇪🇹 https://netsalancer.et")}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Ethiopian freelancers now have 100% FX retention under FXD/04/2026! No more informal channels. Get international cards legally. https://netsalancer.et")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"

@@ -49,19 +49,19 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="problem" className="py-20 px-4 sm:px-6 lg:px-8 bg-paper-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 rounded-full px-4 py-2 text-sm font-semibold mb-4">
-            <span className="w-2 h-2 rounded-full bg-red-500"></span>
+          <div className="inline-flex items-center gap-2 bg-coffee-200/50 text-coffee-800 rounded px-4 py-2 text-sm font-semibold mb-4 border-l-4 border-coffee-600">
+            <span className="w-2 h-2 rounded-full bg-coffee-600"></span>
             The Reality for Ethiopian Freelancers
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-et-dark mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-teff-900 mb-4">
             The Hidden Cost of{" "}
-            <span className="text-red-500">Informal Channels</span>
+            <span className="text-digital-500">Informal Channels</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-teff-700 max-w-2xl mx-auto">
             Every month you use informal channels, you&apos;re not just losing
             money — you&apos;re losing opportunities, security, and your future.
           </p>
@@ -74,26 +74,26 @@ export default function Problem() {
             return (
               <div
                 key={problem.title}
-                className={`card-hover bg-white border-2 ${problem.border} rounded-2xl p-6 shadow-sm`}
+                className="calculator-card"
               >
                 <div
-                  className={`w-12 h-12 ${problem.bg} ${problem.color} rounded-xl flex items-center justify-center mb-4`}
+                  className={`w-12 h-12 ${problem.bg} ${problem.color} rounded flex items-center justify-center mb-4`}
                 >
                   <Icon size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-et-dark mb-4">
+                <h3 className="text-xl font-bold text-teff-900 mb-4">
                   {problem.title}
                 </h3>
                 <ul className="space-y-2 mb-4">
                   {problem.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-gray-600 text-sm">
-                      <span className="text-red-500 mt-0.5 flex-shrink-0">✕</span>
+                    <li key={bullet} className="flex items-start gap-2 text-teff-700 text-sm">
+                      <span className="text-coffee-600 mt-0.5 flex-shrink-0 font-bold">–</span>
                       {bullet}
                     </li>
                   ))}
                 </ul>
-                <div className={`${problem.bg} ${problem.color} rounded-lg p-3 text-xs font-semibold`}>
-                  💡 {problem.impact}
+                <div className={`${problem.bg} ${problem.color} rounded p-3 text-xs font-semibold`}>
+                  Impact: {problem.impact}
                 </div>
               </div>
             );
@@ -101,12 +101,15 @@ export default function Problem() {
         </div>
 
         {/* The twist */}
-        <div className="bg-et-green text-white rounded-2xl p-8 text-center">
-          <div className="text-4xl mb-4">🎯</div>
+        <div className="bg-gradient-to-r from-digital-700 via-digital-500 to-digital-300 text-paper-50 p-8 text-center"
+          style={{
+            clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)"
+          }}>
+          <div className="text-4xl mb-4">►</div>
           <h3 className="text-2xl font-bold mb-3">
             FXD/04/2026 Solves ALL of These
           </h3>
-          <p className="text-white/90 text-lg max-w-2xl mx-auto mb-6">
+          <p className="text-paper-100 text-lg max-w-2xl mx-auto mb-6">
             The National Bank of Ethiopia&apos;s new directive gives you legal
             100% FX retention, international Visa/Mastercard access, and full
             documentation — for free.
@@ -124,7 +127,7 @@ export default function Problem() {
                 key={feature}
                 className="bg-white/20 border border-white/30 px-4 py-1.5 rounded-full text-sm font-medium"
               >
-                ✅ {feature}
+                {feature}
               </span>
             ))}
           </div>

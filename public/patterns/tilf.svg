@@ -1,0 +1,16 @@
+<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="tilf" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <!-- Traditional Ethiopian weaving pattern - diamond shapes -->
+      <g fill="none" stroke="#4A3426" stroke-width="1">
+        <polygon points="40,0 60,20 40,40 20,20"/>
+        <polygon points="40,40 60,60 40,80 20,60"/>
+        <line x1="0" y1="40" x2="20" y2="20"/>
+        <line x1="0" y1="40" x2="20" y2="60"/>
+        <line x1="60" y1="20" x2="80" y2="40"/>
+        <line x1="60" y1="60" x2="80" y2="40"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect fill="url(#tilf)" width="80" height="80"/>
+</svg>

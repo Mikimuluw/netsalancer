@@ -36,8 +36,8 @@ export default function VisaReadinessCalc() {
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl">
-          ✈️
+        <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold">
+          V
         </div>
         <div>
           <h3 className="font-bold text-et-dark text-lg">
@@ -200,7 +200,7 @@ export default function VisaReadinessCalc() {
       {result.monthsToReady > 0 ? (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
           <div className="text-sm font-bold text-blue-700 mb-1">
-            📅 Visa-Ready Timeline
+            Visa-Ready Timeline
           </div>
           <p className="text-sm text-blue-600">
             If you start FXD/04/2026 account today, you&apos;ll have full
@@ -212,7 +212,7 @@ export default function VisaReadinessCalc() {
       ) : (
         <div className="bg-green-50 border border-green-200 rounded-xl p-4">
           <div className="text-sm font-bold text-green-700 mb-1">
-            🎉 You&apos;re Visa-Ready!
+            You&apos;re Visa-Ready!
           </div>
           <p className="text-sm text-green-600">
             With {monthsInFormal} months of formal banking, you have strong

@@ -1,0 +1,12 @@
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="weave" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <!-- Diagonal cross-hatching like netela fabric -->
+      <line x1="0" y1="30" x2="30" y2="0" stroke="#4A3426" stroke-width="1"/>
+      <line x1="30" y1="60" x2="60" y2="30" stroke="#4A3426" stroke-width="1"/>
+      <line x1="30" y1="0" x2="60" y2="30" stroke="#8B5A3C" stroke-width="1"/>
+      <line x1="0" y1="30" x2="30" y2="60" stroke="#8B5A3C" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect fill="url(#weave)" width="60" height="60"/>
+</svg>

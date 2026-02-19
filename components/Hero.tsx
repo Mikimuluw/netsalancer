@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { ArrowDown, FileText } from "lucide-react";
+import { BigNumber } from "./GeezComponents";
 
 const stats = [
-  { value: "100%", label: "FX Retention" },
-  { value: "Feb 12", label: "Effective Date" },
-  { value: "$0", label: "Minimum Deposit" },
-  { value: "∞", label: "Holding Period" },
+  { value: "100%", label: "FX Retention", amharic: "የውጪ ገንዘብ ሙሉ ቁ" },
+  { value: "Feb 12", label: "Effective Date", amharic: "ናሳ ቀን" },
+  { value: "$0", label: "Minimum Deposit", amharic: "ዝቅተኛ ማቀፊያ" },
+  { value: "∞", label: "Holding Period", amharic: "ማቀፊያ ጊዜ" },
 ];
 
 export default function Hero() {
@@ -18,32 +19,31 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 gradient-bg"></div>
-      <div className="absolute inset-0 opacity-10">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-teff-900 via-teff-800 to-coffee-800">
+      {/* Background pattern overlay */}
+      <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='1'%3E%3Cline x1='0' y1='50' x2='50' y2='0'/%3E%3Cline x1='50' y1='100' x2='100' y2='50'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
 
-      {/* Floating currency symbols */}
+      {/* Floating currency symbols - updated colors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {mounted && (
           <>
             {[
-              { symbol: "$", top: "15%", left: "8%", right: undefined, bottom: undefined, size: "text-6xl", opacity: 0.15, delay: "0s" },
-              { symbol: "₿", top: "25%", left: undefined, right: "10%", bottom: undefined, size: "text-5xl", opacity: 0.1, delay: "1s" },
-              { symbol: "€", top: undefined, bottom: "30%", left: "12%", right: undefined, size: "text-4xl", opacity: 0.12, delay: "2s" },
-              { symbol: "£", top: "60%", left: undefined, right: "8%", bottom: undefined, size: "text-5xl", opacity: 0.1, delay: "0.5s" },
-              { symbol: "¥", top: undefined, bottom: "20%", left: undefined, right: "20%", size: "text-3xl", opacity: 0.08, delay: "1.5s" },
+              { symbol: "$", top: "15%", left: "8%", right: undefined, bottom: undefined, size: "text-6xl", opacity: 0.08, delay: "0s" },
+              { symbol: "₿", top: "25%", left: undefined, right: "10%", bottom: undefined, size: "text-5xl", opacity: 0.06, delay: "1s" },
+              { symbol: "€", top: undefined, bottom: "30%", left: "12%", right: undefined, size: "text-4xl", opacity: 0.07, delay: "2s" },
+              { symbol: "₸", top: "60%", left: undefined, right: "8%", bottom: undefined, size: "text-5xl", opacity: 0.06, delay: "0.5s" },
+              { symbol: "¥", top: undefined, bottom: "20%", left: undefined, right: "20%", size: "text-3xl", opacity: 0.05, delay: "1.5s" },
             ].map((item, i) => (
               <div
                 key={i}
-                className={`absolute ${item.size} font-bold text-white select-none`}
+                className={`absolute ${item.size} font-bold text-gold-500 select-none`}
                 style={{
                   top: item.top,
                   left: item.left,
@@ -71,18 +71,18 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-20">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-8">
-          <span className="w-2 h-2 rounded-full bg-et-gold animate-pulse"></span>
-          <span className="text-white text-sm font-medium">
+        <div className="inline-flex items-center gap-2 bg-digital-500/20 backdrop-blur-sm border border-digital-500/40 rounded-full px-4 py-2 mb-8">
+          <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+          <span className="text-paper-50 text-sm font-medium">
             FXD/04/2026 — Effective February 12, 2026
           </span>
         </div>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-50 leading-tight mb-6">
           Stop Losing Money{" "}
           <span className="relative inline-block">
-            <span className="text-et-gold">in the Shadows</span>
+            <span className="text-gold-500">in the Shadows</span>
             <svg
               className="absolute -bottom-2 left-0 w-full"
               height="6"
@@ -91,7 +91,7 @@ export default function Hero() {
             >
               <path
                 d="M0 3 Q75 0 150 3 Q225 6 300 3"
-                stroke="#FCDD09"
+                stroke="#D4AF37"
                 strokeWidth="2"
                 fill="none"
               />
@@ -99,12 +99,15 @@ export default function Hero() {
           </span>
         </h1>
 
+        {/* Amharic headline */}
+        <p className="amharic-header text-gold-500 mb-4">ከጥላ ገበያ ነፃ ይውጡ</p>
+
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl text-paper-100 max-w-3xl mx-auto mb-10 leading-relaxed">
           Ethiopia&apos;s{" "}
-          <strong className="text-et-gold">FXD/04/2026 directive</strong>{" "}
+          <strong className="text-gold-500">FXD/04/2026 directive</strong>{" "}
           changed everything on{" "}
-          <strong className="underline decoration-et-gold">
+          <strong className="text-digital-300">
             February 12, 2026
           </strong>
           . Get <strong>100% FX retention</strong>, international cards, and
@@ -115,7 +118,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <a
             href="#calculators"
-            className="group pulse-cta bg-et-gold text-et-dark px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-yellow-400 transition-all duration-200 flex items-center justify-center gap-2"
+            className="btn-primary-lg pulse-cta flex items-center justify-center gap-2"
           >
             Calculate My FX Freedom
             <ArrowDown size={20} className="group-hover:translate-y-1 transition-transform" />
@@ -124,7 +127,7 @@ export default function Hero() {
             href="https://www.nbe.gov.et"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white/15 backdrop-blur-sm border border-white/40 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/25 transition-all duration-200 flex items-center justify-center gap-2"
+            className="btn-secondary flex items-center justify-center gap-2"
           >
             <FileText size={20} />
             Read the Full Directive
@@ -136,12 +139,16 @@ export default function Hero() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-5"
+              className="bg-teff-700/20 backdrop-blur-sm border border-gold-500/30 px-4 py-5 relative"
+              style={{
+                clipPath: "polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px)"
+              }}
             >
-              <div className="text-3xl sm:text-4xl font-black text-et-gold counter-display">
+              <div className="text-3xl sm:text-4xl font-black text-gold-500 counter-display">
                 {stat.value}
               </div>
-              <div className="text-white/80 text-sm mt-1">{stat.label}</div>
+              <div className="text-paper-200 text-xs font-semibold mt-1 uppercase tracking-wider">{stat.label}</div>
+              {stat.amharic && <div className="amharic-accent text-xs mt-0.5">{stat.amharic}</div>}
             </div>
           ))}
         </div>
@@ -149,8 +156,11 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <ArrowDown className="text-white/60" size={28} />
+        <ArrowDown className="text-gold-500/60" size={28} />
       </div>
+
+      {/* Accent stripe at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent"></div>
 
       {/* Flag stripe at bottom */}
       <div className="absolute bottom-0 left-0 right-0 flag-stripe"></div>

@@ -194,7 +194,7 @@ export default function EnterpriseReadinessCalc() {
       {/* Opportunities */}
       <div className="bg-et-green/5 border border-et-green/20 rounded-xl p-4">
         <div className="text-sm font-bold text-et-green mb-3">
-          ✅ Enterprise Opportunities with FXD/04/2026
+          Enterprise Opportunities with FXD/04/2026
         </div>
         <div className="grid grid-cols-1 gap-2">
           {result.opportunities.map((opp) => (

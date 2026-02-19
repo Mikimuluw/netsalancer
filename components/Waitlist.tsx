@@ -139,7 +139,7 @@ export default function Waitlist() {
                   <CheckCircle size={40} className="text-et-green" />
                 </div>
                 <h3 className="text-xl font-bold text-et-dark mb-2">
-                  You&apos;re on the list! 🎉
+                  You&apos;re on the list!
                 </h3>
                 <p className="text-gray-600 text-sm">
                   We&apos;ll notify you the moment Netsalancer launches. You&apos;re #

@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-et-green: #009639;
-  --color-et-green-dark: #007a2e;
-  --color-et-green-light: #00b344;
-  --color-et-gold: #FCDD09;
+  /* Teff Fields (Primary - Dark Earth Tones) */
+  --color-teff-900: #2D1B0E;
+  --color-teff-800: #3D2518;
+  --color-teff-700: #4A3426;
+  --color-teff-600: #6B4E3D;
+
+  /* Coffee Ceremony (Secondary - Warm Browns) */
+  --color-coffee-800: #4A2C2A;
+  --color-coffee-600: #8B5A3C;
+  --color-coffee-400: #C17D5C;
+  --color-coffee-200: #E6B89C;
+
+  /* Digital Green (Accent - Highland Vegetation + Money) */
+  --color-digital-700: #2D5016;
+  --color-digital-500: #4A7C2F;
+  --color-digital-300: #7FB662;
+
+  /* Metallic (Premium Elements) */
+  --color-gold-500: #D4AF37;
+  --color-gold-300: #F0D98D;
+  --color-silver-400: #C0C0C0;
+
+  /* Handmade Paper (Neutrals) */
+  --color-paper-50: #FAF8F3;
+  --color-paper-100: #F2EDE3;
+  --color-paper-200: #E8E1D1;
+  --color-paper-800: #3A3530;
+  --color-paper-900: #1A1714;
+
+  /* Legacy colors - kept for backwards compatibility */
+  --color-et-green: #4A7C2F;
+  --color-et-gold: #D4AF37;
   --color-et-red: #DA121A;
-  --color-et-dark: #1A1A1A;
-  --color-et-light: #F8F9FA;
-  --color-et-gray: #6B7280;
-  --color-et-border: #E5E7EB;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #1A1A1A;
+  --background: #FAF8F3;
+  --foreground: #2D1B0E;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', 'Noto Sans Ethiopic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -29,64 +53,136 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Updated with new colors */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-paper-100);
 }
 ::-webkit-scrollbar-thumb {
-  background: #009639;
-  border-radius: 3px;
+  background: var(--color-digital-500);
+  border-radius: 4px;
 }
 
-/* Gradient text utility */
+/* Gradient text - Digital Tej House theme */
 .gradient-text {
-  background: linear-gradient(135deg, #009639 0%, #FCDD09 50%, #DA121A 100%);
+  background: linear-gradient(135deg, var(--color-digital-500) 0%, var(--color-coffee-400) 50%, var(--color-gold-500) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #009639 0%, #007a2e 100%);
+  background: linear-gradient(135deg, var(--color-teff-900) 0%, var(--color-coffee-600) 100%);
 }
 
-/* Card hover effect */
+/* Card hover effect - Brutalist shadow style */
 .card-hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 150, 57, 0.15);
+  transform: translate(2px, 2px);
+  box-shadow: 6px 6px 0px var(--color-coffee-800);
 }
 
-/* Pulse animation for CTAs */
-@keyframes pulse-green {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 150, 57, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(0, 150, 57, 0); }
+/* Pulse animation for CTAs - Updated */
+@keyframes pulse-digital {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 124, 47, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(74, 124, 47, 0); }
 }
 .pulse-cta {
-  animation: pulse-green 2s infinite;
+  animation: pulse-digital 2s infinite;
 }
 
-/* Progress bar animation */
-@keyframes progress-fill {
-  from { width: 0%; }
-  to { width: var(--target-width); }
+/* Coffee Pour Loading Animation */
+@keyframes coffee-pour {
+  0% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateZ(90deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
 }
 
-/* Flag stripe decoration */
-.flag-stripe {
-  background: linear-gradient(to right, #009639 33.33%, #FCDD09 33.33%, #FCDD09 66.66%, #DA121A 66.66%);
-  height: 4px;
+@keyframes cup-fill {
+  from { height: 0%; }
+  to { height: 100%; }
 }
 
-/* Number counter */
+.coffee-pour {
+  animation: coffee-pour 2s ease-in-out infinite;
+}
+
+.cup-fill {
+  animation: cup-fill 1.5s ease-out forwards;
+}
+
+/* Weaving Transition Animation */
+@keyframes weave-in {
+  from {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes weave-out {
+  from {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  to {
+    opacity: 0;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+.weave-in {
+  animation: weave-in 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.weave-out {
+  animation: weave-out 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Currency Flip Animation */
+@keyframes flip-card {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.flip-card {
+  animation: flip-card 0.6s ease-in-out;
+}
+
+/* Number counter - Using tabular numerals */
 .counter-display {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
+}
+
+/* Big number display style */
+.big-number {
+  font-family: 'JetBrains Mono', 'Noto Sans Ethiopic', monospace;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--color-digital-500);
+  text-shadow: 2px 2px 0 var(--color-teff-900);
+  letter-spacing: -0.02em;
 }
 
 /* Section fade in */
@@ -115,3 +211,275 @@ html {
 .risk-bg-medium { background-color: #fef9c3; border-color: #ca8a04; }
 .risk-bg-high { background-color: #ffedd5; border-color: #ea580c; }
 .risk-bg-critical { background-color: #fee2e2; border-color: #dc2626; }
+
+/* ========== DIGITAL TEJ HOUSE COMPONENTS ========== */
+
+/* Calculator Card - Like Ethiopian banknote paper */
+.calculator-card {
+  background: var(--color-paper-50);
+  border: 3px solid var(--color-teff-700);
+  box-shadow: 8px 8px 0 var(--color-coffee-800);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><pattern id="weave" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><line x1="0" y1="30" x2="30" y2="0" stroke="%234A3426" stroke-width="1"/><line x1="30" y1="60" x2="60" y2="30" stroke="%234A3426" stroke-width="1"/><line x1="30" y1="0" x2="60" y2="30" stroke="%238B5A3C" stroke-width="1"/><line x1="0" y1="30" x2="30" y2="60" stroke="%238B5A3C" stroke-width="1"/></pattern><rect fill="url(%23weave)" width="100" height="100"/></svg>');
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.calculator-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.calculator-card:hover {
+  box-shadow: 10px 10px 0 var(--color-coffee-600);
+  transform: translate(-2px, -2px);
+  transition: all 0.3s ease;
+}
+
+/* Primary Button - Angular cliff-path style */
+.btn-primary, .btn-primary-lg {
+  background: linear-gradient(135deg, var(--color-digital-700) 0%, var(--color-digital-500) 100%);
+  color: var(--color-paper-50);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  padding: 12px 32px;
+}
+
+.btn-primary-lg {
+  padding: 16px 48px;
+  font-size: 18px;
+}
+
+.btn-primary::before, .btn-primary-lg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.btn-primary:hover::before, .btn-primary-lg:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover, .btn-primary-lg:hover {
+  box-shadow: 0 0 20px rgba(74, 124, 47, 0.3);
+  transform: translate(-1px, -1px);
+}
+
+.btn-primary:active, .btn-primary-lg:active {
+  transform: translate(2px, 2px);
+}
+
+/* Secondary Button - Outlined */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-teff-700);
+  border: 2px solid var(--color-teff-700);
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-paper-100);
+  box-shadow: 4px 4px 0 var(--color-teff-700);
+  transform: translate(-2px, -2px);
+}
+
+/* Gold accent button for premium actions */
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold-500) 0%, var(--color-gold-300) 100%);
+  color: var(--color-teff-900);
+  border: 2px solid var(--color-gold-500);
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transform: scale(1.05);
+}
+
+/* Input field styling */
+.input-field {
+  background: var(--color-paper-50);
+  border: 2px solid var(--color-teff-700);
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--color-teff-900);
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-digital-500);
+  box-shadow: 0 0 0 3px rgba(74, 124, 47, 0.1);
+  background: var(--color-paper-100);
+}
+
+.input-field::placeholder {
+  color: var(--color-teff-600);
+}
+
+/* Slider styling */
+.slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-teff-600);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background: var(--color-digital-500);
+  cursor: pointer;
+  border: 2px solid var(--color-digital-700);
+  clip-path: polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background: var(--color-digital-500);
+  cursor: pointer;
+  border: 2px solid var(--color-digital-700);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Data visualization container */
+.chart-container {
+  background: var(--color-paper-50);
+  border: 2px solid var(--color-teff-700);
+  padding: 32px;
+  margin: 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="stepped" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 L25,50 L25,75 L50,75 L50,25 L75,25 L75,50 L100,50" fill="none" stroke="%234A3426" stroke-width="1" opacity="0.1"/></pattern></defs><rect fill="url(%23stepped)" width="100" height="100"/></svg>');
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+/* Section divider - Stepped pattern */
+.section-divider {
+  height: 12px;
+  background: linear-gradient(135deg, var(--color-teff-700) 25%, transparent 25%) -6px 0,
+              linear-gradient(225deg, var(--color-teff-700) 25%, transparent 25%) -6px 0,
+              linear-gradient(315deg, var(--color-teff-700) 25%, transparent 25%),
+              linear-gradient(45deg, var(--color-teff-700) 25%, transparent 25%);
+  background-size: 12px 12px;
+  background-color: var(--color-coffee-600);
+  margin: 32px 0;
+}
+
+/* Ge'ez numeral toggle */
+.numeral-toggle {
+  display: inline-flex;
+  gap: 8px;
+  background: var(--color-paper-100);
+  border: 2px solid var(--color-teff-700);
+  padding: 4px;
+  border-radius: 0;
+}
+
+.numeral-toggle span {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.numeral-toggle span.active {
+  background: var(--color-digital-500);
+  color: var(--color-paper-50);
+  border-color: var(--color-digital-700);
+}
+
+/* Amharic text styles */
+.amharic-header {
+  font-family: 'Nyala', 'Ebrima', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-teff-900);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.amharic-accent {
+  font-family: 'Nyala', 'Ebrima', serif;
+  color: var(--color-digital-500);
+  font-size: 14px;
+}
+
+/* Geez numerals display */
+.geez-numeral {
+  font-family: 'Nyala', 'Ebrima', 'Noto Sans Ethiopic', serif;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+/* Scrolling parallax element */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
