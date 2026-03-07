@@ -60,7 +60,7 @@ export default function ActionSection() {
             <span className="wl-num-label">freelancers already on the waitlist</span>
             <p className="wl-title">Netsalancer Platform — Q2 2026</p>
             <span className="wl-am">የኔፃላንሰር መደብ</span>
-            <p className="wl-desc">Digital FX account opening in 10 minutes. Instant international cards. Smart payment routing. 100% NBE-compliant.</p>
+            <p className="wl-desc">A payment platform like PayPal, built for Ethiopian freelancers. Clients pay you through Netsalancer — earnings land in your FX account in Addis, in your name. 100% NBE-compliant.</p>
             <form onSubmit={handleSubmit}>
               <input
                 type="email"
