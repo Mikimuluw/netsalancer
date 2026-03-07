@@ -121,6 +121,15 @@ nav {
 }
 .nav-links a:hover { color:var(--amber-lt); }
 
+.nav-right { display:flex; align-items:center; gap:16px; }
+
+.nav-start-link {
+  font-family:var(--f-mono); font-size:13px; font-weight:700;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--amber); text-decoration:none; transition:color 0.15s;
+}
+.nav-start-link:hover { color:var(--amber-lt); }
+
 .nav-cta {
   font-family:var(--f-mono); font-size:12px; font-weight:700;
   letter-spacing:0.09em; text-transform:uppercase;
@@ -980,7 +989,12 @@ footer {
   .ct-row { grid-template-columns:1fr; gap:8px; }
   .ct-sit { padding-right:0; margin-bottom:4px; }
   .action-grid { grid-template-columns:1fr; }
-  .nav-links   { display:none; }
+  .nav-section-links { display:none; }
+  .nav-start-link {
+    font-size:11px; letter-spacing:0.08em;
+    padding:6px 10px; border:1px solid var(--border-amb);
+  }
+  .btn-download { display:block; width:100%; text-align:center; }
   .w,.ww { padding:0 20px; }
 }
 
@@ -1066,8 +1080,6 @@ footer {
 }
 
 /* ─── NAV START LINK ────────────────────────── */
-.nav-start { color:var(--amber) !important; }
-.nav-start:hover { color:var(--amber-lt) !important; }
 
 /* ─── /START PAGE ──────────────────────────── */
 .start-hero {

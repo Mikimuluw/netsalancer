@@ -53,7 +53,7 @@ export default function ActionSection() {
                 </li>
               ))}
             </ul>
-            <a href="#waitlist" className="btn btn-amb">↓ Download Free Package</a>
+            <a href="/start" className="btn btn-amb btn-download" title="Open your FX account — step by step guide">↓ Download Free Package</a>
           </div>
           <div className="wl-card">
             <span className="wl-num">247</span>
