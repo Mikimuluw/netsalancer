@@ -53,7 +53,7 @@ export default function ActionSection() {
                 </li>
               ))}
             </ul>
-            <a href="/start" className="btn btn-amb btn-download" title="Open your FX account — step by step guide">↓ Download Free Package</a>
+            <a href="/netsalancer-fx-package.txt" download className="btn btn-amb btn-download" title="5 documents: cover letter, directive summary, checklist, timeline, worksheet">↓ Download Free Package</a>
           </div>
           <div className="wl-card">
             <span className="wl-num">247</span>

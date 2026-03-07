@@ -990,9 +990,19 @@ footer {
   .ct-sit { padding-right:0; margin-bottom:4px; }
   .action-grid { grid-template-columns:1fr; }
   .nav-section-links { display:none; }
+  .nav-in { height:52px; padding:0 16px; }
+  .nav-right { gap:8px; flex-shrink:0; }
+  .logo { font-size:13px; }
   .nav-start-link {
-    font-size:11px; letter-spacing:0.08em;
-    padding:6px 10px; border:1px solid var(--border-amb);
+    font-size:10px; font-weight:600; letter-spacing:0.1em;
+    color:var(--amber); background:transparent;
+    border:1px solid var(--border-amb);
+    padding:7px 12px; white-space:nowrap;
+    clip-path:polygon(3px 0%,100% 0%,calc(100% - 3px) 100%,0% 100%);
+  }
+  .nav-cta {
+    font-size:10px; padding:7px 14px; white-space:nowrap;
+    clip-path:polygon(3px 0%,100% 0%,calc(100% - 3px) 100%,0% 100%);
   }
   .btn-download { display:block; width:100%; text-align:center; }
   .w,.ww { padding:0 20px; }

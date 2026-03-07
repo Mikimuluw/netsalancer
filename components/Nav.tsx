@@ -13,7 +13,7 @@ export default function Nav() {
         </ul>
         <div className="nav-right">
           <Link href="/start" className="nav-start-link">START →</Link>
-          <Link href="#waitlist" className="nav-cta">FREE DOCS</Link>
+          <Link href="/#waitlist" className="nav-cta">FREE DOCS</Link>
         </div>
       </div>
     </nav>
