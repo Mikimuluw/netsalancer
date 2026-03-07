@@ -1,15 +1,41 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Syne, Noto_Serif_Ethiopic } from "next/font/google";
 import "./globals.css";
 
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+  variable: "--font-syne",
+});
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-ibm-plex-mono",
+});
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
+  variable: "--font-ibm-plex-sans",
+});
+const ethiopic = Noto_Serif_Ethiopic({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  display: "swap",
+  variable: "--font-noto-serif-ethiopic",
+});
+
 export const metadata: Metadata = {
-  title: "Netsalancer - Ethiopian Freelancer FX Freedom | FXD/04/2026",
+  title: "NET፡ፃ፡LANCER — FXD/04/2026",
   description:
     "Stop losing 25% of your freelance earnings. FXD/04/2026 gives Ethiopian freelancers 100% FX retention, international cards, and legal protection. Calculate your savings now.",
   keywords:
     "Ethiopian freelancers, FXD/04/2026, foreign exchange, Payoneer Ethiopia, international card Ethiopia, freelance Ethiopia, NBE directive, FX retention account",
   authors: [{ name: "Netsalancer", url: "https://netsalancer.et" }],
   openGraph: {
-    title: "Netsalancer - Ethiopian Freelancer FX Freedom",
+    title: "NET፡ፃ፡LANCER — FXD/04/2026",
     description:
       "FXD/04/2026 gives Ethiopian freelancers 100% FX retention, international cards, and legal protection. Calculate your savings now.",
     url: "https://netsalancer.et",
@@ -19,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Netsalancer - Ethiopian Freelancer FX Freedom",
+    title: "NET፡ፃ፡LANCER — FXD/04/2026",
     description:
       "FXD/04/2026 gives Ethiopian freelancers 100% FX retention, international cards, and legal protection.",
   },
@@ -37,16 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <meta name="theme-color" content="#09090B" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -67,7 +84,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-paper-50 text-teff-900 font-body">{children}</body>
+      <body
+        className={`${mono.variable} ${sans.variable} ${syne.variable} ${ethiopic.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

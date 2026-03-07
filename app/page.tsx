@@ -1,25 +1,26 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
-import CalculatorsSection from "@/components/CalculatorsSection";
-import CostComparison from "@/components/CostComparison";
-import PDFGenerator from "@/components/PDFGenerator";
-import Waitlist from "@/components/Waitlist";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
+import Particles from "@/components/Particles";
+import Nav from "@/components/Nav";
+import HeroV7 from "@/components/HeroV7";
+import ProblemV7 from "@/components/ProblemV7";
+import CalcSection from "@/components/CalcSection";
+import CompTable from "@/components/CompTable";
+import ActionSection from "@/components/ActionSection";
+import FooterV7 from "@/components/FooterV7";
 
 export default function Home() {
   return (
-    <main>
-      <Navigation />
-      <Hero />
-      <Problem />
-      <CalculatorsSection />
-      <CostComparison />
-      <PDFGenerator />
-      <Waitlist />
-      <FAQ />
-      <Footer />
-    </main>
+    <>
+      <Particles />
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <Nav />
+      <main id="main-content">
+        <HeroV7 />
+        <ProblemV7 />
+        <CalcSection />
+        <CompTable />
+        <ActionSection />
+      </main>
+      <FooterV7 />
+    </>
   );
 }
