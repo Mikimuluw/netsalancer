@@ -35,8 +35,8 @@ export default function FooterV7() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2026 Netsalancer — Powered by FXD/04/2026, National Bank of Ethiopia</p>
-          <p>Not a bank. Information and tools only. · mikimuluw@gmail.com</p>
+          <p>© 2026 Netsalancer — Built on NBE Directive FXD/04/2026. Not affiliated with the National Bank of Ethiopia. Not a bank. Information and tools only.</p>
+          <p>mikimuluw@gmail.com</p>
         </div>
       </div>
     </footer>

@@ -108,32 +108,37 @@ export default function VisaDateCalc() {
         ))}
       </div>
 
-      <div className="visa-date-display">
-        <span className="vd-label">
-          EARLIEST {country} VISA APPLICATION DATE
-        </span>
-        <span className="vd-date">{fmtDate(visaDate)}</span>
-        <span className="vd-sub">
-          Based on {BANK_MONTHS[country]}-month bank statement requirement +
-          processing time
-        </span>
-      </div>
+      <div className="result-divider"><span>&mdash; RESULT &mdash;</span></div>
 
-      <div className="vd-timeline">
-        {timeline.map((item) => (
-          <div className="vd-item" key={item.label}>
-            <p className="vd-item-label">{item.label}</p>
-            <p className={`vd-item-timing ${item.isFuture ? "vd-future" : ""}`}>
-              {item.timing}
-            </p>
-          </div>
-        ))}
-      </div>
+      <div className="result-panel">
+        <span className="result-badge">LIVE RESULT</span>
+        <div className="visa-date-display">
+          <span className="vd-label">
+            EARLIEST {country} VISA APPLICATION DATE
+          </span>
+          <span className="vd-date">{fmtDate(visaDate)}</span>
+          <span className="vd-sub">
+            Based on {BANK_MONTHS[country]}-month bank statement requirement +
+            processing time
+          </span>
+        </div>
 
-      <p className="vd-delay">
-        Every month you delay opening an FX account is a month added to this
-        date.
-      </p>
+        <div className="vd-timeline">
+          {timeline.map((item) => (
+            <div className="vd-item" key={item.label}>
+              <p className="vd-item-label">{item.label}</p>
+              <p className={`vd-item-timing ${item.isFuture ? "vd-future" : ""}`}>
+                {item.timing}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p className="vd-delay">
+          Every month you delay opening an FX account is a month added to this
+          date.
+        </p>
+      </div>
     </div>
   );
 }

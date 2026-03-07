@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRate } from "./RateProvider";
 
 const SHORT_DESCS: Record<string, string> = {
   split: "Payments split across people and dates. No paper trail.",
@@ -19,7 +20,7 @@ type Status = {
 type Scenario = {
   id: string;
   title: string;
-  getStatus: (e: number, y: number, l: number) => Status;
+  getStatus: (e: number, y: number, l: number, r: number) => Status;
 };
 
 const SCENARIOS: Scenario[] = [
@@ -48,12 +49,13 @@ const SCENARIOS: Scenario[] = [
   {
     id: "identity",
     title: "INCOME IN SOMEONE ELSE\u2019S NAME",
-    getStatus: (e, y) => {
+    getStatus: (e, y, _l, r) => {
       const total = e * y * 12;
+      const etb = Math.round(total * r).toLocaleString();
       return {
         active: true,
         amount: `$${total.toLocaleString()}`,
-        suffix: "earned in your friend\u2019s name.",
+        suffix: `(${etb} ETB) earned in your friend\u2019s name.`,
         line: "",
       };
     },
@@ -61,12 +63,13 @@ const SCENARIOS: Scenario[] = [
   {
     id: "fees",
     title: "THE INFORMAL TAX",
-    getStatus: (e, y) => {
+    getStatus: (e, y, _l, r) => {
       const totalFees = Math.round(e * y * 12 * 0.1);
+      const etb = Math.round(totalFees * r).toLocaleString();
       return {
         active: true,
         amount: `$${totalFees.toLocaleString()}`,
-        suffix: "paid in agent fees.",
+        suffix: `(${etb} ETB) paid in agent fees.`,
         line: "",
       };
     },
@@ -77,6 +80,7 @@ export default function FailureCalc() {
   const [earnings, setEarnings] = useState(2000);
   const [years, setYears] = useState(2);
   const [largest, setLargest] = useState(1000);
+  const { rate } = useRate();
 
   return (
     <div>
@@ -140,34 +144,39 @@ export default function FailureCalc() {
         </div>
       </div>
 
-      <div className="failure-cards">
-        {SCENARIOS.map((s) => {
-          const status = s.getStatus(earnings, years, largest);
-          return (
-            <div
-              key={s.id}
-              className={`f-card ${status.active ? "f-card-on" : "f-card-off"}`}
-            >
-              <div className="f-head">
-                <span className="f-title">{s.title}</span>
-                <span className={`f-badge ${status.active ? "f-badge-on" : "f-badge-off"}`}>
-                  {status.active ? "ACTIVE" : "LOW RISK"}
-                </span>
+      <div className="result-divider"><span>&mdash; RESULT &mdash;</span></div>
+
+      <div className="result-panel">
+        <span className="result-badge">LIVE RESULT</span>
+        <div className="failure-cards">
+          {SCENARIOS.map((s) => {
+            const status = s.getStatus(earnings, years, largest, rate);
+            return (
+              <div
+                key={s.id}
+                className={`f-card ${status.active ? "f-card-on" : "f-card-off"}`}
+              >
+                <div className="f-head">
+                  <span className="f-title">{s.title}</span>
+                  <span className={`f-badge ${status.active ? "f-badge-on" : "f-badge-off"}`}>
+                    {status.active ? "ACTIVE" : "LOW RISK"}
+                  </span>
+                </div>
+                <p className={`f-verdict ${status.active ? "f-verdict-on" : ""}`}>
+                  {status.amount ? (
+                    <>
+                      <span className="f-amount">{status.amount}</span>{" "}
+                      {status.suffix}
+                    </>
+                  ) : (
+                    status.line
+                  )}
+                </p>
+                <p className="f-explain">{SHORT_DESCS[s.id]}</p>
               </div>
-              <p className={`f-verdict ${status.active ? "f-verdict-on" : ""}`}>
-                {status.amount ? (
-                  <>
-                    <span className="f-amount">{status.amount}</span>{" "}
-                    {status.suffix}
-                  </>
-                ) : (
-                  status.line
-                )}
-              </p>
-              <p className="f-explain">{SHORT_DESCS[s.id]}</p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

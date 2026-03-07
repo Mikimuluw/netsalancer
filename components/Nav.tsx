@@ -10,6 +10,7 @@ export default function Nav() {
           <li><Link href="#problem">PROBLEM</Link></li>
           <li><Link href="#calc">CALCULATE</Link></li>
           <li><Link href="#compare">COMPARE</Link></li>
+          <li><Link href="/start" className="nav-start">START →</Link></li>
         </ul>
         <Link href="#waitlist" className="nav-cta">FREE DOCS</Link>
       </div>

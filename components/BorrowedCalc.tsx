@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRate } from "./RateProvider";
 
 const ROWS = [
   {
     situation: "Subscriptions requiring your identity (AWS, Stripe, Figma Teams)",
-    paypal: "Blocked — account not yours",
+    paypal: "Blocked \u2014 account not yours",
     fxd: "All services",
   },
   {
@@ -37,6 +38,7 @@ const ROWS = [
 
 export default function BorrowedCalc() {
   const [income, setIncome] = useState(1500);
+  const { rate } = useRate();
   const annual = income * 12;
 
   return (
@@ -74,20 +76,30 @@ export default function BorrowedCalc() {
           <div className="ct-row" key={r.situation}>
             <span className="ct-sit">{r.situation}</span>
             <span className="ct-paypal">
-              <span className="ct-icon ct-icon-x">✗</span> {r.paypal}
+              <span className="ct-icon ct-icon-x">{"\u2717"}</span> {r.paypal}
             </span>
             <span className="ct-fxd">
-              <span className="ct-icon ct-icon-ok">✓</span> {r.fxd}
+              <span className="ct-icon ct-icon-ok">{"\u2713"}</span> {r.fxd}
             </span>
           </div>
         ))}
       </div>
 
-      <p className="ct-bottom">
-        In 12 months, you will have earned{" "}
-        <strong>${annual.toLocaleString()}</strong> in your friend&apos;s name.{" "}
-        <span className="ct-highlight">Not yours.</span>
-      </p>
+      <div className="result-divider"><span>\u2014 RESULT \u2014</span></div>
+
+      <div className="result-panel">
+        <span className="result-badge">LIVE RESULT</span>
+        <div className="borrowed-result">
+          <span className="result-num-big">${annual.toLocaleString()}</span>
+          <span className="result-context">
+            in your friend&apos;s name.{" "}
+            <em className="result-punch">Not yours.</em>
+          </span>
+          <span className="result-etb">
+            ({Math.round(annual * rate).toLocaleString()} ETB at current rate)
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import Badge from "./Badge";
+import LiveRateStat from "./LiveRateStat";
 
 const STATS = [
   { val: "100%", label: "FX Retention", am: "የውጭ ምንዛሪ ሙሉ ጥቅም" },
@@ -15,10 +16,10 @@ export default function HeroV7() {
             <Badge>FXD/04/2026 — Effective February 12, 2026</Badge>
 
             <h1 className="hero-h1">
-              Stop losing<br />
-              money <em>in the<br />shadows.</em>
+              The directive is real.<br />
+              <em>Use it.</em>
             </h1>
-            <span className="hero-am">ከጥቅም ውጪ ባሉ ሰርጦች ገንዘብ ማጣት ያቁሙ</span>
+            <span className="hero-am">ትእዛዙ እውነት ነው — ተጠቀምበት</span>
 
             <p className="hero-body">
               Ethiopia&apos;s <strong>FXD/04/2026 directive</strong> gives freelancers legal{" "}
@@ -44,7 +45,9 @@ export default function HeroV7() {
               <span className="stat-am">{s.am}</span>
             </div>
           ))}
+          <LiveRateStat />
         </div>
+        <p className="rate-note">Rate data: exchangerate-api.com · Updated daily</p>
         <div className="scroll-hint">↓ ART. 01</div>
       </div>
     </section>
