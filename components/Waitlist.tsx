@@ -22,9 +22,9 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Get Paid by Clients Directly",
+    title: "A Payment Gateway for Freelancers",
     description:
-      "Clients pay you through Netsalancer — like PayPal — and funds route straight to your FX retention account.",
+      "Upwork and Fiverr can\u2019t pay Ethiopian banks yet. Netsalancer bridges that gap \u2014 clients pay through us, and funds land in your FX retention account in Addis.",
     color: "text-yellow-500",
     bg: "bg-yellow-50",
   },

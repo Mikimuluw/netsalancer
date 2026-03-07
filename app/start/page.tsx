@@ -58,7 +58,7 @@ const STEPS = [
     num: "06",
     title: "Start Getting Paid",
     am: "ክፍያ መቀበል ይጀምሩ",
-    body: "Direct clients can wire payments straight into your new FX account today. For platform earnings (Upwork, Fiverr, Toptal) — most platforms can\u2019t pay Ethiopian banks directly yet. That\u2019s exactly what we\u2019re building. Join the Netsalancer waitlist: think PayPal, built for Ethiopian freelancers. Clients pay you through us, and your earnings land in your FX retention account in Addis — legal, in your name, from day one.",
+    body: "Your FX account is open \u2014 but platforms like Upwork, Fiverr, and Toptal don\u2019t support Ethiopian bank payouts yet. That\u2019s the gap. Netsalancer is building a payment gateway \u2014 like PayPal \u2014 designed for Ethiopian freelancers. Your clients pay through Netsalancer, and we route the funds directly into your FX retention account in Addis. Legal, in your name, from day one. Join the waitlist to get early access.",
     docs: [],
     note: "\u2192 Every payment builds your bank statement history and your visa application.",
     noteColor: "var(--amber-lt)",
