@@ -955,6 +955,17 @@ footer {
   text-decoration:none; margin-bottom:6px; transition:color 0.15s;
 }
 .footer-col a:hover { color:var(--amber-lt); }
+.footer-soon {
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--f-mono); font-size:11px;
+  color:var(--text-soft); margin-bottom:6px;
+}
+.soon-pill {
+  font-family:var(--f-mono); font-size:9px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase;
+  background:var(--bg-hover); color:var(--text-soft);
+  padding:1px 6px;
+}
 .footer-bottom { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
 .footer-bottom p { font-family:var(--f-mono); font-size:11px; color:var(--text-soft); line-height:1.7; }
 

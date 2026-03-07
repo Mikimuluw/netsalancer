@@ -27,10 +27,10 @@ export default function FooterV7() {
             </div>
             <div className="footer-col">
               <h4>Platform</h4>
-              <Link href="#waitlist">Account Opening</Link>
-              <Link href="#waitlist">International Cards</Link>
-              <Link href="#waitlist">Payment Routing</Link>
-              <Link href="#waitlist">NBE Compliance</Link>
+              <span className="footer-soon">Account Opening <span className="soon-pill">Q2 2026</span></span>
+              <span className="footer-soon">International Cards <span className="soon-pill">Q2 2026</span></span>
+              <span className="footer-soon">Payment Routing <span className="soon-pill">Q2 2026</span></span>
+              <span className="footer-soon">NBE Compliance <span className="soon-pill">Q2 2026</span></span>
             </div>
           </div>
         </div>
