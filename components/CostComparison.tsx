@@ -1,105 +1,7 @@
 "use client";
 
 import { Check, X } from "lucide-react";
-
-const comparisonData = [
-  {
-    aspect: "Exchange Rate",
-    blackMarket: "175 ETB/USD",
-    formal: "155 ETB/USD",
-    blackMarketBad: false,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Agent / Processing Fee",
-    blackMarket: "-10% (-17.5 ETB)",
-    formal: "0%",
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Effective Rate",
-    blackMarket: "~157 ETB/USD",
-    formal: "155 ETB/USD",
-    blackMarketBad: false,
-    formalBad: false,
-    highlight: true,
-  },
-  {
-    aspect: "International Visa/Mastercard",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Proof of Income / Bank Statements",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Volume Limit",
-    blackMarket: "~$2,000/month",
-    formal: "Unlimited ✅",
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Legal Status",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Account Freeze Risk",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Enterprise / Fortune 500 Clients",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Visa Applications",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Business Loans & Credit",
-    blackMarket: null,
-    formal: true,
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-  {
-    aspect: "Scaling Potential",
-    blackMarket: "Capped",
-    formal: "Unlimited",
-    blackMarketBad: true,
-    formalBad: false,
-    highlight: false,
-  },
-];
+import { useRate } from "./RateProvider";
 
 function CellValue({
   value,
@@ -134,6 +36,112 @@ function CellValue({
 }
 
 export default function CostComparison() {
+  const { rate, blackMarketRate, effectiveRate, loading } = useRate();
+
+  const bankDisplay = loading ? "..." : `${rate} ETB/USD`;
+  const blackDisplay = loading ? "..." : `${blackMarketRate} ETB/USD`;
+  const agentFee = loading ? "..." : `-10% (-${(blackMarketRate * 0.1).toFixed(1)} ETB)`;
+  const effectiveDisplay = loading ? "..." : `~${effectiveRate} ETB/USD`;
+
+  const comparisonData = [
+    {
+      aspect: "Exchange Rate",
+      blackMarket: blackDisplay,
+      formal: bankDisplay,
+      blackMarketBad: false,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Agent / Processing Fee",
+      blackMarket: agentFee,
+      formal: "0%",
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Effective Rate",
+      blackMarket: effectiveDisplay,
+      formal: bankDisplay,
+      blackMarketBad: false,
+      formalBad: false,
+      highlight: true,
+    },
+    {
+      aspect: "International Visa/Mastercard",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Proof of Income / Bank Statements",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Volume Limit",
+      blackMarket: "~$2,000/month",
+      formal: "Unlimited ✅",
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Legal Status",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Account Freeze Risk",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Enterprise / Fortune 500 Clients",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Visa Applications",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Business Loans & Credit",
+      blackMarket: null,
+      formal: true,
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+    {
+      aspect: "Scaling Potential",
+      blackMarket: "Capped",
+      formal: "Unlimited",
+      blackMarketBad: true,
+      formalBad: false,
+      highlight: false,
+    },
+  ];
+
   return (
     <section id="comparison" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-5xl mx-auto">
@@ -222,11 +230,11 @@ export default function CostComparison() {
           </p>
           <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 px-6 py-3 rounded-xl">
             <span className="text-et-gold font-bold text-xl">
-              ~157 ETB/USD
+              ~{effectiveRate} ETB/USD
             </span>
             <span className="text-white/70">=</span>
             <span className="text-et-gold font-bold text-xl">
-              155 ETB/USD
+              {rate} ETB/USD
             </span>
             <span className="text-white/70 text-sm ml-2">
               (same money, infinite more benefits)
@@ -246,7 +254,7 @@ export default function CostComparison() {
               rel="noopener noreferrer"
               className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
             >
-              📱 Share on WhatsApp
+              Share on WhatsApp
             </a>
             <a
               href={`https://t.me/share/url?url=${encodeURIComponent("https://netsalancer.et")}&text=${encodeURIComponent("FXD/04/2026 - Ethiopian freelancers can now keep 100% of USD earnings AND get international cards!")}`}
@@ -262,7 +270,7 @@ export default function CostComparison() {
               rel="noopener noreferrer"
               className="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"
             >
-              𝕏 Share on X
+              Share on X
             </a>
           </div>
         </div>

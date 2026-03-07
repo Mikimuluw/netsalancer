@@ -1,26 +1,28 @@
-type Row = {
-  label: string;
-  informal: string;
-  fxd: string;
-  infClass?: string;
-  fxdClass?: string;
-  highlight?: boolean;
-};
+"use client";
 
-const ROWS: Row[] = [
-  { label: "Exchange Rate", informal: "175 ETB/USD", fxd: "155 ETB/USD" },
-  { label: "Agent / Processing Fee", informal: "−10% (−17.5 ETB)", fxd: "0%", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "★ Effective Rate", informal: "~157 ETB/USD", fxd: "155 ETB/USD", fxdClass: "v-hi", highlight: true },
-  { label: "International Visa/Mastercard", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Proof of Income / Bank Statements", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Volume Limit", informal: "~$2,000/month", fxd: "Unlimited", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Legal Status", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Enterprise / Fortune 500 Clients", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Visa Applications", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
-  { label: "Scaling Potential", informal: "Capped", fxd: "Unlimited", infClass: "v-neg", fxdClass: "v-pos" },
-];
+import { useRate } from "./RateProvider";
 
 export default function CompTable() {
+  const { rate, blackMarketRate, effectiveRate, loading } = useRate();
+
+  const bankDisplay = loading ? "..." : `${rate} ETB/USD`;
+  const blackDisplay = loading ? "..." : `${blackMarketRate} ETB/USD`;
+  const agentFee = loading ? "..." : `−10% (−${(blackMarketRate * 0.1).toFixed(1)} ETB)`;
+  const effectiveDisplay = loading ? "..." : `~${effectiveRate} ETB/USD`;
+
+  const ROWS = [
+    { label: "Exchange Rate", informal: blackDisplay, fxd: bankDisplay },
+    { label: "Agent / Processing Fee", informal: agentFee, fxd: "0%", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "★ Effective Rate", informal: effectiveDisplay, fxd: bankDisplay, fxdClass: "v-hi", highlight: true },
+    { label: "International Visa/Mastercard", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Proof of Income / Bank Statements", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Volume Limit", informal: "~$2,000/month", fxd: "Unlimited", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Legal Status", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Enterprise / Fortune 500 Clients", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Visa Applications", informal: "No", fxd: "Yes", infClass: "v-neg", fxdClass: "v-pos" },
+    { label: "Scaling Potential", informal: "Capped", fxd: "Unlimited", infClass: "v-neg", fxdClass: "v-pos" },
+  ];
+
   return (
     <section id="compare">
       <div className="w">
@@ -52,7 +54,7 @@ export default function CompTable() {
         </div>
         <div className="bottom-line">
           <p>For the <strong>same effective rate</strong>, you get international cards, legal protection, bank statements, visa eligibility, and a real path to growth.</p>
-          <p className="bl-math">~157 ETB/USD <span className="eq">=</span> 155 ETB/USD <span style={{ fontSize: "11px", color: "var(--text-ghost)" }}> (same money. infinite more benefits.)</span></p>
+          <p className="bl-math">~{effectiveRate} ETB/USD <span className="eq">=</span> {rate} ETB/USD <span style={{ fontSize: "11px", color: "var(--text-ghost)" }}> (same money. infinite more benefits.)</span></p>
           <div className="share-row">
             <span className="share-label">Share →</span>
             <a href="https://wa.me/?text=Ethiopian%20freelancers%3A%20the%20informal%20rate%20isn%E2%80%99t%20better%20after%20agent%20fees.%20See%20the%20real%20math%20%E2%86%92%20netsalance.info" target="_blank" rel="noopener noreferrer" className="share-btn primary">WhatsApp</a>

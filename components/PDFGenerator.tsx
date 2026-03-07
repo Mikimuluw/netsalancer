@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Download, Loader2, CheckCircle } from "lucide-react";
 import { type PDFFormData } from "@/lib/pdf-generator";
+import { useRate } from "./RateProvider";
 
 const schema = z.object({
   fullName: z
@@ -68,6 +69,7 @@ export default function PDFGenerator() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [success, setSuccess] = useState(false);
   const [waitlistEmail, setWaitlistEmail] = useState("");
+  const { rate } = useRate();
 
   const {
     register,
@@ -89,7 +91,7 @@ export default function PDFGenerator() {
     setIsGenerating(true);
     try {
       const { generatePDF } = await import("@/lib/pdf-generator");
-      await generatePDF(data as PDFFormData);
+      await generatePDF(data as PDFFormData, rate);
       setWaitlistEmail(data.email);
       setSuccess(true);
 

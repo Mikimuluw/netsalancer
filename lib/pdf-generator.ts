@@ -38,7 +38,7 @@ const bankInfo: Record<string, { phone: string; email: string; branch: string }>
   },
 };
 
-export async function generatePDF(data: PDFFormData): Promise<void> {
+export async function generatePDF(data: PDFFormData, etbRate?: number): Promise<void> {
   const { default: jsPDF } = await import("jspdf");
   const { default: autoTable } = await import("jspdf-autotable");
 
@@ -576,7 +576,7 @@ export async function generatePDF(data: PDFFormData): Promise<void> {
 
   const monthly = parseFloat(data.monthlyEarnings) || 0;
   const annual = monthly * 12;
-  const etbRate = 155;
+  etbRate = etbRate ?? 155;
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
@@ -603,7 +603,7 @@ export async function generatePDF(data: PDFFormData): Promise<void> {
     {
       label: "Annual ETB Value",
       value: `${(annual * etbRate).toLocaleString()} ETB`,
-      sub: "@ 155 ETB/USD",
+      sub: `@ ${etbRate} ETB/USD`,
     },
   ];
 
