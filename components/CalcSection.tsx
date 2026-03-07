@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import BorrowedCalc from "./BorrowedCalc";
 import FailureCalc from "./FailureCalc";
 import VisaDateCalc from "./VisaDateCalc";
+import { useRate } from "./RateProvider";
 
 const TABS = [
   { id: "sp", num: "01", name: "Borrowed", teaser: "What the PayPal workaround costs" },
@@ -14,6 +15,7 @@ const TABS = [
 export default function CalcSection() {
   const [active, setActive] = useState("sp");
   const [pulse, setPulse] = useState(false);
+  const { rate, effectiveRate } = useRate();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -33,7 +35,7 @@ export default function CalcSection() {
         <span className="eyebrow">Art. 02 — Calculators</span>
         <h2 className="sec-h">Your numbers.<br />Your decision.</h2>
         <span className="sec-am">የእርስዎ ቁጥሮች</span>
-        <p className="sec-body">Formal rate: 155 ETB/USD, 0% fees. After a hawala agent&apos;s 10% cut, informal nets ~157 ETB/USD. That 2-birr gap is what you&apos;re trading for everything below.</p>
+        <p className="sec-body">Formal rate: {rate} ETB/USD, 0% fees. After a hawala agent&apos;s 10% cut, informal nets ~{effectiveRate} ETB/USD. That {Math.abs(Math.round(effectiveRate - rate))}-birr gap is what you&apos;re trading for everything below.</p>
 
         <div className="calc-tabs" role="tablist">
           {TABS.map((t, i) => (

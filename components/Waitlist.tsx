@@ -22,9 +22,9 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Smart Payment Routing",
+    title: "A Payment Gateway for Freelancers",
     description:
-      "Receive payments from clients worldwide with automatic best-rate conversion when needed.",
+      "Upwork and Fiverr can\u2019t pay Ethiopian banks yet. Netsalancer bridges that gap \u2014 clients pay through us, and funds land in your FX retention account in Addis.",
     color: "text-yellow-500",
     bg: "bg-yellow-50",
   },
@@ -72,12 +72,13 @@ export default function Waitlist() {
             Coming Q2 2026
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-et-dark mb-4">
-            We&apos;re Building the Platform to{" "}
-            <span className="text-et-green">Make This Automatic</span>
+            Think PayPal,{" "}
+            <span className="text-et-green">Built for Ethiopian Freelancers</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Digital FX account opening, instant international cards, and
-            seamless payment processing — all in one app.
+            Clients pay you through Netsalancer. Your earnings land directly
+            in your FX retention account in Addis — legal, in your name,
+            with full bank statement history.
           </p>
         </div>
 

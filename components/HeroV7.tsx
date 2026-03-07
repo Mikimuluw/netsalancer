@@ -47,7 +47,7 @@ export default function HeroV7() {
           ))}
           <LiveRateStat />
         </div>
-        <p className="rate-note">Rate data: exchangerate-api.com · Updated daily</p>
+        <p className="rate-note">Rates update live · Bank &amp; black market data refreshed hourly</p>
         <div className="scroll-hint">↓ ART. 01</div>
       </div>
     </section>
